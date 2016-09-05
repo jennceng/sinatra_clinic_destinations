@@ -1,4 +1,4 @@
-require 'sinatra'
+require 'Sinatra'
 require 'pry'
 
 get '/' do
@@ -14,7 +14,7 @@ end
 post '/destinations' do
   destination = params[:destination]
 
-  File.open('destinations.txt', 'a') do |file|
+  File.open('destinations.txt', 'w') do |file|
     file.puts(destination)
   end
 
