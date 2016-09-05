@@ -2,7 +2,7 @@
 
 * Sinatra is a free and open-source lightweight web application framework
 * Unlike other ruby frameworks (such as Rails), Sinatra emphasizes a minimalistic approach to development, only offering what is essential to hand HTTP requests and deliver responses to clients (your browser)
-* It is ideal for teaching HTTP since its syntax in defining endpoints use HTTP verbs in the pattern `*verb ‘route’ do`*
+* It is ideal for teaching HTTP since its syntax in defining endpoints use HTTP verbs in the pattern `verb ‘route’ do`
 
 ---
 
