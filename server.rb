@@ -6,7 +6,7 @@ get '/' do
 end
 
 get '/destinations' do
-  @destinations = File.readlines('destinations.txt')
+  destinations = File.readlines('destinations.txt')
 
   erb :index
 end
