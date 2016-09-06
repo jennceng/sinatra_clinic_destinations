@@ -8,12 +8,6 @@
     <h2>Desinations Bucket List</h2>
     <h3>Destinations</h3>
 
-    <ul>
-      <% @destinations.each do |destination| %>
-        <li><%= destination %></li>
-      <% end %>
-    </ul>
-
     <form action="/destinations" method="post">
       <input type="text" id="destination" name="destination">
       <input type="submit">
