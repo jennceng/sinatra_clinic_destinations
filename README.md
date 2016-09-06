@@ -126,3 +126,12 @@ Debugging
 ### Throw a pry in it
 
 * erb is just embedded ruby, you can use pry simply by throwing `<% binding.pry %>` into your erb file!
+
+---
+### Destination Bucket List
+```
+checklist -
+[ ]  visiting ‘/destinations’ should show me an unordered list of all the desti˜nations from the txt file with each destination as its own <li>
+[ ]  as a user I want to be able to add destinations via a form that should add it to ‘destinations.txt’, then it should redirect me to the page I was just on, ‘/destinations’, so I can see all the previous entries plus the new destination I just submitted
+[ ]  root should redirect to “/destinations"
+```
