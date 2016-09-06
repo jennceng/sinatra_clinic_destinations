@@ -1,7 +1,7 @@
 ### What is Sinatra?
 
 * Sinatra is a free and open-source lightweight web application framework
-* Unlike other ruby frameworks (such as Rails), Sinatra emphasizes a minimalistic approach to development, only offering what is essential to hand HTTP requests and deliver responses to clients (your browser)
+* Unlike other ruby frameworks (such as Rails), Sinatra emphasizes a minimalistic approach to development, only offering what is essential to handle HTTP requests and deliver responses to clients (your browser)
 * It is ideal for teaching HTTP since its syntax in defining endpoints use HTTP verbs in the pattern `verb ‘route’ do`
 
 ---
@@ -9,7 +9,7 @@
 ### Routes
 
 * Routes can essentially be seen as methods in ruby of a specific syntax
-* To declare a routes you supply the HTTP verb to respond to, the URL, and a block you want executed if that someone travels to that route
+* To declare a route you supply the HTTP verb to respond to, the URL, and a block you want executed if someone travels to / hits that route
 
 * for example many routes may have the same URL, but they can be triggered / called based on the type of HTTP verb
 
@@ -26,6 +26,8 @@ end
 ```
 
 * just as Ruby methods only have one return value, and once returned jumps out of the method even if there are more lines of code in the block, Sinatra can only have one return, for example redirecting to a different route
+* if the situation calls for it you can use conditionals to redirect / render things based on conditions 
+
 
 ```ruby
 # the pry after the redirect will never be hit because the redirect will cause an exit of the block / method
