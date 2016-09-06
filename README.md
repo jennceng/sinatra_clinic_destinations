@@ -16,11 +16,11 @@
 ```ruby
 require 'sinatra'
 
-get '/ingredients' do
+get '/destinations' do
   # triggered via GET
 end
 
-post '/ingredients' do
+post '/destinations' do
   # triggered via POST, such as the submission of a form with action 'POST'
 end
 ```
@@ -29,11 +29,11 @@ end
 
 ```ruby
 # the pry after the redirect will never be hit because the redirect will cause an exit of the block / method
-post '/ingredients' do
-  ingredient = params[:ingredient]
+post '/destinations' do
+  destination = params[:destination]
 
-  File.open('ingredients.txt', 'a') do |file|
-    file.puts(ingredient)
+  File.open('destination.txt', 'a') do |file|
+    file.puts(destination)
   end
 
   redirect '/'
@@ -54,8 +54,10 @@ end
 * for queries it would be defined in your url of your route in the server file
 
 ```ruby
-get '/ingredients/:id' do
+get '/destinations/:country' do
+  @destination = params[:name]
   binding.pry
+  erb :show
 end
 ```
 
@@ -64,14 +66,16 @@ end
 the symbol id becomes the key in our key-value pair of our params hash, so if it was defined as
 
 ```ruby
-get '/ingredients/:name' do
+get '/destinations/:name' do
+  @destination = params[:name]
   binding.pry
+  erb :show
 end
 ```
 
-now going to that same url `<http://localhost:4567/ingredients/brussels>`, we still have the same value of brussels, this time with a key of “name"
+now going to that same url `<http://localhost:4567/destinations/korea>`, we still have the same value of this time with a key of “name"
 
-![Alt text](http://i.imgur.com/EZIPMKZ.png)
+![Alt text](<http://i.imgur.com/8Ck7OKI.png>)
 
 ---
 
@@ -82,17 +86,43 @@ now going to that same url `<http://localhost:4567/ingredients/brussels>`, we st
 ```ruby
 # server.rb
 get '/' do
-  @ingredients = File.readlines('ingredients.txt')
+  @destinations = File.readlines('destinations.txt')
 
   erb :index
 end
 ```
 
+---
+
+### Views
+
+* sinatra will default to look in your views folder
+
 ```ruby
-# views/index.erb
-  <ul>
-      <% @ingredients.each do |ingredient| %>
-        <li><%= ingredient %></li>
-      <% end %>
-  </ul>
+# server.rb
+# looks in views folder for index.erb
+get '/' do
+  @destinations = File.readlines('destinations.txt')
+
+  erb :index
+end
 ```
+
+* if your template is in a subfolder, for example if you follow a pattern to have a folder for each model so each subfolder can have its own index.erb, you need to convert the string path to a symbol such as
+
+```ruby
+erb :'destinations/index'
+```
+
+---
+
+Debugging
+=========
+
+### Start by restarting your server
+
+* often when we make changes on the server file and we don’t see that reflected on the webpage it is because we forgot to restart the server
+
+### Throw a pry in it
+
+* erb is just embedded ruby, you can use pry simply by throwing `<% binding.pry %>` into your erb file!
