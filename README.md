@@ -61,7 +61,7 @@ get '/destinations/:country' do
 end
 ```
 
-![Alt text](http://i.imgur.com/Z5M5puI.png)
+![Alt text](http://i.imgur.com/KY3Izqb.png)
 
 the symbol id becomes the key in our key-value pair of our params hash, so if it was defined as
 
@@ -73,7 +73,7 @@ get '/destinations/:name' do
 end
 ```
 
-now going to that same url `<http://localhost:4567/destinations/korea>`, we still have the same value of this time with a key of “name"
+now going to that same url `http://localhost:4567/destinations/korea`, we still have the same value of this time with a key of “name"
 
 ![Alt text](<http://i.imgur.com/8Ck7OKI.png>)
 
